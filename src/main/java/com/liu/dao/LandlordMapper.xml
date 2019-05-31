@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.dao.LandlordMapper">
+    <resultMap id="BaseResultMap" type="com.liu.entity.Landlord">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
+        <result column="phone" jdbcType="INTEGER" property="phone" />
+        <result column="user_status" jdbcType="VARCHAR" property="userStatus" />
+        <result column="register_date" jdbcType="VARCHAR" property="registerDate" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    </resultMap>
+    <insert id="insertLandlord" parameterType="com.liu.entity.Landlord" >
+        insert into landlord (username , phone ,register_date,update_date)
+        values (#{username},#{phone},now(),now())
+    </insert>
+</mapper>
